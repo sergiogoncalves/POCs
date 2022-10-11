@@ -1,0 +1,45 @@
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.15.3</version>
+        </dependency>
+        
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.parser.Parser;        
+     
+     Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
+        for (Element e : doc.select("CreditCard")) {
+
+
+            System.out.println(e.getElementsByTag("ExpireMonth").text());
+            System.out.println("-----------------------------------------------");
+            System.out.println(e.getElementsByTag("ExpireYear").text());
+            System.out.println("-----------------------------------------------");
+            System.out.println(e.getElementsByTag("CardNumber").text());
+
+            System.out.println("-----------------------------------------------");
+
+            System.out.println(e.getElementsByTag("ExpireMonth").empty());
+            System.out.println("-----------------------------------------------");
+            System.out.println(e.getElementsByTag("ExpireYear").empty());
+            System.out.println("-----------------------------------------------");
+            System.out.println(e.getElementsByTag("CardNumber").empty());
+
+            System.out.println("-----------------------------------------------");
+
+            System.out.println(e.getElementsByTag("ExpireMonth").append("Expire month changed"));
+            System.out.println("-----------------------------------------------");
+            System.out.println(e.getElementsByTag("ExpireYear").append("Expire year changed"));
+            System.out.println("-----------------------------------------------");
+            System.out.println(e.getElementsByTag("CardNumber").append("CardNumber changed"));
+
+            System.out.println("-----------------------------------------------");
+
+            System.out.println(e.getElementsByTag("ExpireMonth").text());
+            System.out.println("-----------------------------------------------");
+            System.out.println(e.getElementsByTag("ExpireYear").text());
+            System.out.println("-----------------------------------------------");
+            System.out.println(e.getElementsByTag("CardNumber").text());
+        }
